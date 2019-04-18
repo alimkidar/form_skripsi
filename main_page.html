@@ -1,14 +1,274 @@
-<! DOCTYPE <!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>BANTU SKRIPSI ALIM</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
-    <script src="main.js"></script>
+	<title>BANTU SKRIPSI ALIM</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+crossorigin=""></script>
+
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/noui/nouislider.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+/*			#map {
+			  width: 400 px;
+			  height: 600 px;
+			  margin: 0;
+			  padding: 0;
+			};*/
+	      #map {
+	        height: 550px;
+	        width: 100%;
+	        position: relative;
+	        z-index: 0; 
+
+	      }
+	       Optional: Makes the sample page fill the window. 
+	      html, body {
+	        height: 100%;
+	        margin: 0;
+	        padding: 0;
+	      }
+	      .kanan {
+		    position: absolute;
+		    top: : 1%;
+		    right: 1%;
+	      }
+    </style>
+
 </head>
 <body>
-    
+	<div class="container-contact100">
+		<div class="wrap-contact100"><p style = "font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, Times, serif;font-size:16px;font-style:italic; text-align: justify;">
+			<h1>Pola Spasial Pemilihan Pusat Perbelanjaan di Kota Depok</h1></br>
+		</p>
+		<p style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif">
+				Responden yang terhormat,</br></br>
+				Perkenalkan saya Alim Kidar Hanif, 
+				mahasiswa S1 Program Studi Geografi Fakultas Matematika dan Ilmu Pengetahuan Alam (FMIPA) Universitas Indonesia. 
+				Saat ini saya sedang melakukan penelitian untuk memenuhi tugas akhir saya yang berjudul
+				'<b>Pola Spasial Pemilihan Pusat Perbelanjaan di Kota Depok</b>'.<br></br>
+				Adapun kriteria responden dalam penelitian ini, yaitu:<br>
+				1. Berdomisili di Kota Depok, Jawa Barat</br>
+				2. Tinggal bersama keluarga (minimal 2 orang dalam 1 rumah)</br>
+				3. Mengetahui kebiasaan belanja rumah</br></br>
+				
+				Jika Anda memenuhi kriteria tersebut, 
+				saya memohon kesediaan Anda untuk menjadi responden dalam penelitian ini dengan cara mengisi kuisioner dibawah ini.</br></br>
+
+				Jawaban yang Anda berikan tidak ada yang benar maupun salah.
+				Oleh karena itu, saya memohon untuk diisi dengan jujur dan lengkap sesuai dengan keadaan Anda sekarang.
+				Data yang Anda berikan pada kuisioner ini ditujukan untuk kepentingan akademik,
+				serta akan dijaga kerahasiaan-nya.</br></br>
+
+				Apabila Anda memiliki pertanyaan, kritik, saran terkait kuisioner ini, Anda dapat menghubungi saya melalui surel berikut alim.kidar@ui.ac.id </br> </br>
+
+				Atas partisipasi Anda, saya ucapkan terimakasih.</br></br>
+		</p>
+		<p style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; text-align: right">
+				Hormat saya,</br></br></br>
+				Alim Kidar Hanif
+			</p></br>
+		 <form action="kuisioner.html" method="post">
+		     <div class="form-group" id='verifikasi'>
+		         <div class="radio">
+		             <label><input type="checkbox" name="verifikasi" value="Ya" required> Saya termasuk dalam kriteria diatas</label>
+		         </div>
+             </div>
+             <div class="container-contact100-form-btn">
+                    <button name="submit" type="submit" value="kirim" class="contact100-form-btn" id="btnSubmit">
+                        <span>
+                            Lanjutkan
+                            <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+                        </span>
+                    </button>
+                </div>
+			</div>
+		    
+			
+		 </form>
+
+
+		</div>
+
+	</div>
+<!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+   integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+   crossorigin=""></script> -->
+<script type="text/javascript">
+	// add a tile layer to our map
+	var url = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
+	  attr = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+	  osm = L.tileLayer(url, {
+	    maxZoom: 18,
+	    attribution: attr
+	  });
+
+
+	// initialize the map 
+	var map = L.map('map').setView([-6.394585, 106.823349], 14).addLayer(osm);
+	var markers = [];
+
+	// click event
+	map.on('click', onMapClick);
+	// map.on('click', setMarker);
+
+
+
+	function setMarker(xy) {
+		var counter=0;
+	  var input = document.createElement('input');
+	  input.setAttribute('name', 'koordinat');
+	  input.setAttribute('type', 'hidden');
+	  input.setAttribute('class', 'form-control');
+	  input.setAttribute('id', 'usr');
+	  input.setAttribute('value', xy);
+	  // document.body.appendChild(input);
+	  document.getElementById('input_koordinat').appendChild(input);
+	   // alert('koordinat baru ' + xy) 
+	}
+	// Script for adding marker on map click
+	function onMapClick(e) {
+
+	  var geojsonFeature = {
+	    "type": "Feature",
+	    "properties": {},
+	    "geometry": {
+	      "type": "Point",
+	      "coordinates": [e.latlng.lat, e.latlng.lng]
+	    }
+	  }
+	  if (markers.length > 0) {
+	    map.removeLayer(markers.pop());
+	  }
+	  var marker;
+
+	  L.geoJson(geojsonFeature, {
+
+	    pointToLayer: function(feature, latlng) {
+
+	      marker = L.marker(e.latlng, {
+
+	        title: "Resource Location",
+	        alt: "Resource Location",
+	        riseOnHover: true,
+	        draggable: true,
+
+	      });
+	      setMarker(e.latlng);
+	      markers.push(marker)
+
+	      return marker;
+	    }
+	  }).addTo(map);
+	}
+
+</script>
+
+
+
+
+
+<!--===============================================================================================-->
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+	<script>
+		$(".js-select2").each(function(){
+			$(this).select2({
+				minimumResultsForSearch: 20,
+				dropdownParent: $(this).next('.dropDownSelect2')
+			});
+
+
+			$(".js-select2").each(function(){
+				$(this).on('select2:close', function (e){
+					if($(this).val() == "Lainnya") {
+						$('.js-show-service').slideUp();
+						$('.js-show-service').slideDown();
+
+					}
+					else {
+						$('.js-show-service').slideUp();
+						
+					}
+				});
+			});
+		})
+	</script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/noui/nouislider.min.js"></script>
+	<script>
+	    var filterBar = document.getElementById('filter-bar');
+
+	    noUiSlider.create(filterBar, {
+	        start: [ 1500, 3900 ],
+	        connect: true,
+	        range: {
+	            'min': 1500,
+	            'max': 7500
+	        }
+	    });
+
+	    var skipValues = [
+	    document.getElementById('value-lower'),
+	    document.getElementById('value-upper')
+	    ];
+
+	    filterBar.noUiSlider.on('update', function( values, handle ) {
+	        skipValues[handle].innerHTML = Math.round(values[handle]);
+	        $('.contact100-form-range-value input[name="from-value"]').val($('#value-lower').html());
+	        $('.contact100-form-range-value input[name="to-value"]').val($('#value-upper').html());
+	    });
+	</script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+
+
+
 </body>
 </html>
